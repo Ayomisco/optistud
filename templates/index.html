@@ -1,0 +1,142 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study / Dashboard
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Dashboard
+{% endblock page_title %}
+    
+{% block content %}
+  <div class="mt-5 grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
+
+              <div class="flex  justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 shadow-zinc-200/50	 bg-gray-400 max-w-sm dark:bg-dark-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/notes.png' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">NOTE</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Create notes to refer them later.
+                      They are stored permanently until deleted.
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg dark:shadow-zinc-200/50 hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/homework.jpeg' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">Homework</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Add homeworks and assign deadlines. They will be displayed prioritised by deadlines.
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/youtube.webp' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">Youtube</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Search youtube and select your desired video to play it on YouTube
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/todo.jpg' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">TODO</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Add your ToDo lists for your dy and remove them as soon as you finish
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/notes.png' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">BOOKS</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Browse books from a list of neatly organized book menu
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/notes.png' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">DICTIONARY</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      A vocabulary from a book is troubling you? No problem, enter the word and 
+                      the meaning will be displayed almost instantaneously.
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/notes.png' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">WikiPedia</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                      Homework and Assignments? Search wikipedia to get fast results.
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+
+              <div class="flex justify-center">
+                <div class="rounded-lg shadow-lg hover:shadow-zinc-200/50 bg-gray-300 max-w-sm dark:bg-blue-600">
+                  <a href="#!" data-mdb-ripple="true" data-mdb-ripple-color="light">
+                    <img class="rounded-t-lg img-dash" src="{% static  'assets/img/notes.png' %}" alt=""/>
+                  </a>
+                  <div class="p-6">
+                    <h5 class="text-gray-900 text-xl font-medium mb-2">Conversion</h5>
+                    <p class="text-gray-700 text-base mb-4">
+                        Check out the conversion table that helps you to convert measurements to more familiar ones of your choice
+                    </p>
+                    <button type="button" class=" inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+                  </div>
+                </div>
+              </div>
+  
+   </div>
+
+   {% endblock content %}
+           
+
