@@ -1,0 +1,26 @@
+     {% for result in results %}
+                        <a href="{{ result.link }}" target="_blank">
+                           <div class="card cb d-flex justify-content-center py-5" >
+                          
+                                <div class="row no-gutters p-5 pt-4">
+                                  <div class="col-md pt-4">
+                                    <img src="{{result.thumbnail}}" class="card-img-top" alt="...">
+                                  </div>
+
+                                  <div class="col-md ml-3 " style="margin-top: 23px">
+                                   
+                                      <h3 class="text-center">  {{result.title}} </h3>
+                                      <h5 class="card-title text-center">{{result.channel}}</h5>
+                                      <p class="card-text ">{{result.description}}</p>
+                                      <p>Duration: <span>{{result.duration}}</span></p>
+                                      <p>Views: <span>{{result.views}}</span></p>
+                                      <p>Uploads: <span>{{result.published}}</span></p>
+
+                                  </div>
+                                 
+                                </div>
+                           </div>
+                           
+                       
+                      </a>
+                      {% endfor %}

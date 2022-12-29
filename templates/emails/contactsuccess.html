@@ -1,0 +1,151 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Message Received</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="shortcut icon" href="{% static 'portfolio_assets/img/profile/favicon.ico' %}" type="image/x-icon">
+    <!-- font awesome -->
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_assets/css/font-awesome.css' %}">
+    <!-- main css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_assets/css/style.css' %}">
+    <!-- Responsiveness Start Here-->
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_assets/css/responsive.css' %}">
+    <!-- Responsiveness En\ds Here-->
+    <!-- Style Switcher CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_assets/css/style-switcher.css' %}">
+    <!-- default Skin Color css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'portfolio_assets/css/skins/color-1.css' %}">
+
+    <!-- Style Switch skin colors Start Here-->
+    <link rel="stylesheet" type="text/css" class="alternate-style" title="color-1"
+        href="{% static 'portfolio_assets/css/skins/color-1.css' %}" disabled>
+    <link rel="stylesheet" type="text/css" class="alternate-style" title="color-2"
+        href="{% static 'portfolio_assets/css/skins/color-2.css' %}" disabled>
+    <link rel="stylesheet" type="text/css" class="alternate-style" title="color-3"
+        href="{% static 'portfolio_assets/css/skins/color-3.css' %}" disabled>
+    <link rel="stylesheet" type="text/css" class="alternate-style" title="color-4"
+        href="{% static 'portfolio_assets/css/skins/color-4.css' %}" disabled>
+    <link rel="stylesheet" type="text/css" class="alternate-style" title="color-5"
+        href="{% static 'portfolio_assets/css/skins/color-5.css' %}" disabled>
+
+    <!-- Style Switch skin colors Ends Here-->
+    <!-- <style>
+
+        :root{
+            --rating: calc({{skill.percentage_rating}} - 14px);
+        }
+        #rating{ 
+            width: var(--rating);
+    }
+
+    </style> -->
+
+    <style>
+        @media(max-width: 574px) {
+            .btn-1 {
+                padding: 14px 12px;
+                font: 14px;
+                font-weight: 500;
+                color: var(--skin-color);
+                background-color: transparent;
+                line-height: 1.5;
+                cursor: pointer;
+                border-radius: 30px;
+                transition: all 0.3s ease;
+                display: inline-block;
+                border: none;
+
+            }
+
+            .contact-item {
+                width: 100%;
+                margin-top: 20%;
+                margin-left: 0px !important;
+                margin-right: 5%;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="dark">
+    <!---------------- Preloader Start Here -------------------- -->
+    <!-- <div class="preloader">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div> -->
+    <!---------------- Preloader Ends Here -------------------- -->
+
+
+
+
+    <div class="fade-out-effect"></div>
+    <!-- NAVIGATION MENU ENDS HERE -->
+    <section class="contact-section section" id="contact-me">
+        <div class="">
+            <!-- <div class="row">
+            <div class="section-title">
+                <h2 data-heading="contact">Get in Touch</h2>
+            </div>
+        </div> -->
+            <div class="" style="width: 100%; display: block; 
+   ">
+
+
+                <!-- contact item start here -->
+                <div class="contact-item" style="margin-top: 15%; margin-left: 30%; margin-right: 30%;">
+                    <div class="contact-item-inner outer-shadow">
+                        <i class="fa fa-eye"></i>
+                        <span>Contact Success</span>
+                        <p>Message sent successfully. I will get back to you shortly.</p>
+                        <p>Thank You!</p>
+
+                        <a href="https://ayomideportfolio.herokuapp.com/ayomisco" style="margin-top: 20px;"
+                            class="link-item btn-1 outer-shadow hover-in-shadow"><i class="fa fa-hand-o-right"
+                                style="margin-right: 5px; font-size: 15px;"></i> Go Back To Portfolio</a>
+                    </div>
+                </div>
+                <!-- contact item Ends here -->
+
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Switcher Start -->
+    <div class="style-switcher outer-shadow">
+        <div class="style-switcher-toggler s-icon outer-shadow hover-in-shadow">
+            <i class="fas fa-cog fa-spin"></i>
+        </div>
+        <div class="day-night s-icon outer-shadow hover-in-shadow">
+            <i class="fas fa-moon"></i>
+        </div>
+
+        <h4>Theme Colors</h4>
+        <div class="colors">
+            <span class="color-1" onclick="setActiveStyle('color-1')"></span>
+            <span class="color-2" onclick="setActiveStyle('color-2')"></span>
+            <span class="color-3" onclick="setActiveStyle('color-3')"></span>
+            <span class="color-4" onclick="setActiveStyle('color-4')"></span>
+            <span class="color-5" onclick="setActiveStyle('color-5')"></span>
+
+        </div>
+    </div>
+    <!-- Style Switcher Popup End -->
+
+    <!-- Footer -->
+    <!-- main js -->
+    <script src="{% static 'portfolio_assets/js/main.js ' %} "></script>
+    <!-- style switcher js -->
+    <script src="{% static 'portfolio_assets/js/style-switcher.js ' %}"></script>
+</body>
+
+</html>

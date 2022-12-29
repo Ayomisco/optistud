@@ -14,9 +14,27 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
+# Media Files
+from django.conf.urls.static import static
+from django.conf import settings
+from user_auth.views import *
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('optimum-admin/', admin.site.urls),
     path('', include('studyapp.urls')),
-]
+    path('account/', include('user_auth.urls')),
+    # re_path(r'^(profile/?P\<username>\w+)/$',UserProfile, name='profile'),
+    path('profile/<str:username>/', UserProfile, name='profile'),
+
+    
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = "Optimum Admin"
+admin.site.site_title = "Optimum Study Admin Portal"
+admin.site.index_title = "Welcome to Optimum Admin Website"
+
+handler404 = 'studyapp.views.error_404'
+
+
+

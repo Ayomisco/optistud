@@ -1,0 +1,104 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study / Notes
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Notes
+{% endblock page_title %}
+    
+{% block content %}
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">+ Add a new note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        </div>
+ 
+        <form method="post" enctype="multipart/form-data" role="form">
+          
+          {% csrf_token %}
+        <div class="modal-body">
+ 
+            <div class="form-group">
+              <label for="title">First Name</label>
+              
+              {{form.first_name}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">Last Name</label>
+                {{form.last_name}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">Location</label>
+                {{form.location}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">Twitter Link</label>
+                {{form.twitter_url}}
+             </div>
+ 
+             <div class="form-group">
+                {{ form.github_url.errors }}
+                <label for="title">GitHub</label>
+                {{form.github_url}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">Facebook</label>
+                {{form.facebook_url}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">instagram</label>
+                {{form.instagram_url}}
+             </div>
+ 
+             <div class="form-group">
+                <label for="title">Profile Info</label>
+                {{form.profile_info}}
+             </div>
+ 
+ 
+ 
+          <div class="custom-file">
+             {{form.profile_pic}}         
+             <label class="custom-file-label" for="customFile">Choose file</label>
+           </div>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+        </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create</button>
+            </div>
+        </form>
+        
+        
+    </div>
+    </div>
+ </div>
+
+
+ {% endblock content %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study | Notes
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Note Detail
+{% endblock page_title %}
+    
+{% block content %}
+
+
+  <!-- row -->
+  <div class="row column1">
+    <div class="col-md-12">
+
+
+
+        <div class="full price_table padding_infor_info">
+ 
+              
+                     <div class="inner_table_price">
+                        <div class="price_table_head green_bg">
+                           <h2>{{ note.title }}</h2>
+                        </div>
+                        <div class="">
+                           <div class="card-body cb">
+                              <p class="card-text align-middle" style="font-weight: 600; text-align: center;">{{ note.description }}  </p>
+                           </div>
+                           
+                        </div>
+
+                     </div>
+                 
+               <!-- end column price -->
+
+         </div>
+      </div>
+   </div>
+
+
+
+
+
+
+{% endblock content %}

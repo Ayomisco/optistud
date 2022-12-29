@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Optimum Study / Books
+{% endblock title %}
+
+{% block page_title %}
+Optimum Study / Google Books Search
+{% endblock page_title %}
+
+{% block content %}
+
+<style>
+      /*  Helper Styles */
+      body {
+        font-family: Varela Round;
+        background: #f1f1f1;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    /* Card Styles */
+
+    .card-sl {
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .card-image img {
+        max-height: 100%;
+        max-width: 100%;
+        border-radius: 8px 8px 0px 0;
+    }
+
+    .card-action {
+        position: relative;
+        float: right;
+        margin-top: -25px;
+        margin-right: 20px;
+        z-index: 2;
+        color: #E26D5C;
+        background: #fff;
+        border-radius: 100%;
+        padding: 15px;
+        font-size: 15px;
+        box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+    }
+
+    .card-action:hover {
+        color: #fff;
+        background: #E26D5C;
+        -webkit-animation: pulse 1.5s infinite;
+    }
+
+    .card-heading {
+        font-size: 18px;
+        font-weight: bold;
+        background: #fff;
+        padding: 10px 15px;
+    }
+
+    .card-text {
+        padding: 10px 15px;
+        background: #fff;
+        font-size: 14px;
+        color: #636262;
+    }
+
+    .card-button {
+        display: flex;
+        justify-content: center;
+        padding: 10px 0;
+        width: 100%;
+        background-color: #1F487E;
+        color: #fff;
+        border-radius: 0 0 8px 8px;
+    }
+
+    .card-button:hover {
+        text-decoration: none;
+        background-color: #1D3461;
+        color: #fff;
+
+    }
+
+
+    @-webkit-keyframes pulse {
+        0% {
+            -moz-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+        }
+
+        70% {
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -webkit-transform: scale(1);
+            transform: scale(1);
+            box-shadow: 0 0 0 50px rgba(90, 153, 212, 0);
+        }
+
+        100% {
+            -moz-transform: scale(0.9);
+            -ms-transform: scale(0.9);
+            -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+            box-shadow: 0 0 0 0 rgba(90, 153, 212, 0);
+        }
+    }
+</style>
+
+<!-- row -->
+<div class="row column1">
+  <div class="col-md-12">
+
+
+
+    <div class="full price_table padding_infor_info">
+
+
+      <div class="inner_table_price ">
+        <div class="price_table_head green_bg mb-5">
+          <h2>Search Online Dictionary <br>
+            <p class="card-text yellow_color">Enter any words to get the phonetics, definition and example for the word</p>
+          </h2>
+
+          <h2><!-- Search form -->
+            <form method="post" class="form-inline justify-content-center md-form mr-auto mb-4">
+              {% csrf_token %}
+              {{form.text}}
+              <button class="btn btn-outline-warning btn-rounded btn-sm my-0" type="submit">Search</button>
+            </form>
+
+          </h2>
+        </div>
+
+
+        <div class=" mx-auto mt-4">
+          <div class="row">
+           
+            <div class="container" style="margin-top:50px;">
+
+              <div class="row">
+
+                {% if input %}
+                {% if phonetics %}
+                <div class="col-md-12 mb-4">
+                  <div class="card-sl text-center">
+                      {% comment %} <div class="card-image">
+                          <img
+                              src="{{result.thumbnail}}" />
+                      </div> {% endcomment %}
+                      <audio id="player" src="{{audio}}"> </audio>
+                      <a class="card-action" onclick="document.getElementById('player').play()"><i class="fa fa-volume-up text-center "></i> </a>
+                     
+                      <div class="card-heading " style="margin-left: 50px;">
+                        
+                        {{input}} 
+                      </div>
+                     
+                      <div>
+                        {{phonetics}} <br>
+                      <i class="fa fa-volume-up text-center " onclick="document.getElementById('player').play()" style="font-size: 3rem; cursor: pointer;"></i>  
+                      </div>
+                      <hr>
+                     
+                    
+                    <div class="card-heading text-left">
+                      <span style="color: #ec5322"> Definition: </span> {{definition}}<br>
+                      <span style="color: #ec5322">  Example:</span> {{example}}
+                      <br>
+                      <span style="color: #ec5322">Synonyms: </span> 
+                      {% for synonym  in synonyms %} {{synonym}}, {% endfor %}
+
+                      <br>
+                      <span style="color: #ec5322">Antonyms: </span> 
+                      {% for antonym  in antonyms %} {{antonym}}{% if antonym|wordcount >= 2 %}, {% else %}.{% endif %} {% endfor %}
+
+                    </div>
+                  
+                  <hr>
+                  <br>
+                      {% comment %} <a href="{{ result.preview }}" class="card-button"> Preview Book</a> {% endcomment %}
+                  </div>
+                </div>
+                {% else %}
+                <h1 class="text-center" style=" width: 100%;"> Sorry, Word not found. Try another word</h1>
+
+                {% endif %}
+
+                {% else %}
+
+                <h1 class="text-center" style=" width: 100%;"> Sorry, API request limit exceeded </h1>
+                {% endif %}
+              </div>  
+              
+
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- end column price -->
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+{% endblock content %}

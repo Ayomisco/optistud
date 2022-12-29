@@ -1,0 +1,44 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study / Notes
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Notes
+{% endblock page_title %}
+    
+{% block content %}
+<div class="flex items-center space-x-4 text-sm pb-4 mb-4">
+    <button type="button" class="p-3 mr-4  bg-blue-600 text-white rounded-full dark:text-blue-800 dark:bg-blue-800 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">Create</button>
+
+</div>
+
+<div class="mt-5 grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4 mt-4" style="margin-top: 60px;" >
+
+    <div class="card">
+        <div class="card-header mx-3 -mt-6">
+        <div class="shadow-pink pe-1 rounded-lg bg-pink-500 py-3">
+            <h1 class="mt-2 mb-0 text-center text-xl font-bold text-white">Sign in</h1>
+
+        </div>
+        </div>
+        <div class="card-body">
+        
+            <p class="text-gray-700 text-base mb-4">
+                Create notes to refer them later.
+                They are stored permanently until deleted.
+              </p>
+
+        <i class='bx bxs-trash text-purple-600   text-2xl dark:text-gray-400 focus:outline-none focus:shadow-outline-gray'></i>
+        <a href="#">
+            <p class="mt-5 mb-0 text-center text-sm">Don&apos;t have an account?</p>
+        </a>
+        </div>
+    </div>
+
+</div>  
+{% endblock content %}
+           
+

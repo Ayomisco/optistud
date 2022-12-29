@@ -1,106 +1,82 @@
 <!DOCTYPE html>
-<html :class="{ 'theme-dark': dark }" x-data="data()" lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Login - Windmill Dashboard</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../assets/css/tailwind.output.css" />
-    <script
-      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
-      defer
-    ></script>
-    <script src="../assets/js/init-alpine.js"></script>
-  </head>
-  <body>
-    <div class="flex items-center min-h-screen p-6 bg-gray-50 dark:bg-gray-900">
-      <div
-        class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg shadow-xl dark:bg-gray-800"
-      >
-        <div class="flex flex-col overflow-y-auto md:flex-row">
-          <div class="h-32 md:h-auto md:w-1/2" style="background-image: url(../assets/img/header-1.jpg);">
-            <!-- <img
-              aria-hidden="true"
-              class="object-cover w-full h-full dark:hidden"
-              src="../assets/img/computer.png"
-              alt="Office"
-            /> -->
-            <center>
-              <img
-              aria-hidden="true"
-              class="hidden object-cover w-full h-full dark:block"
-              src="../assets/img/xactcash.jpeg"
-              alt="Office"
-              style="width: 120px; height: 120px; align-self: center;"
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 
-            />
-            <img
-              aria-hidden="true"
-              class="hidden object-cover w-full h-full dark:block"
-              src="../assets/img/computer.png"
-              alt="Office"
-              style="margin-top:  42px; align-self: center;"
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDBc -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.css"
+rel="stylesheet"
+/>
 
-            />
-          </center>
-          </div>
-          <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2">
-            <div class="w-full">
-              <h1
-                class="mb-4 text-xl font-semibold text-gray-700 dark:text-gray-200"
-              >
-                Login
-              </h1>
-              <label class="block text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Email</span>
-                <input
-                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="Jane Doe"
-                />
-              </label>
-              <label class="block mt-4 text-sm">
-                <span class="text-gray-700 dark:text-gray-400">Password</span>
-                <input
-                  class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-                  placeholder="***************"
-                  type="password"
-                />
-              </label>
+</head>
+<body>
+    
+</body>
+</html>
+<section class="vh-100" style="background-color: #0d234d;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card shadow-2-strong" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <h3 class="mb-5">Sign in</h3>
+  
+              <form action="./?next={{ redirect_to }}" method="post">
+                {% csrf_token %}
+      
+                <div class="form-outline mb-4">
+                  {{form.username}}
+                  <label class="form-label" for="typeEmailX-2">Username</label>
+                </div>
+    
+                <div class="form-outline mb-4">
+                  {{form.password}}
+                  <label class="form-label" for="typePasswordX-2">Password</label>
+                </div>
+    
+                <!-- Checkbox -->
+                {% comment %} <div class="form-check d-flex justify-content-start mb-4">
+                  <input class="form-check-input" type="checkbox" value="" id="form1Example3" />
+                  <label class="form-check-label" for="form1Example3"> Remember password </label>
+                </div>
+     {% endcomment %}
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Login</button>
+                <p class="mt-3"> Don't have an account? <a href="{% url 'signup'%}">Signup</a></p>
 
-              <!-- You should use a button here, as the anchor is only used for the example  -->
-              <a
-                class="block w-full px-4 py-2 mt-4 text-sm font-medium leading-5 text-center text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-                href="../index.html"
-              >
-                Log in
-              </a>
-
-
-
-
-              <p class="mt-4">
-                <a
-                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./forgot-password.html"
-                >
-                  Forgot your password?
-                </a>
-              </p>
-              <p class="mt-1">
-                <a
-                  class="text-sm font-medium text-purple-600 dark:text-purple-400 hover:underline"
-                  href="./create-account.html"
-                >
-                  Create account
-                </a>
-              </p>
+              </form>
+              <!-- <hr class="my-4">
+  
+              <button class="btn btn-lg btn-block btn-primary" style="background-color: #dd4b39;"
+                type="submit"><i class="fab fa-google me-2"></i> Sign in with google</button>
+              <button class="btn btn-lg btn-block btn-primary mb-2" style="background-color: #3b5998;"
+                type="submit"><i class="fab fa-facebook-f me-2"></i>Sign in with facebook</button>
+   -->
             </div>
           </div>
         </div>
       </div>
     </div>
+  </section>
+
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.0.0/mdb.min.js"
+></script>
   </body>
-</html>
+  </html>
