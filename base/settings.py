@@ -12,7 +12,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 from pathlib import Path
 from django.contrib.messages import constants as messages
-import cloudinary_storage
+# import cloudinary_storage
+# updated my cloudinary
 from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'studyapp.apps.StudyappConfig',
      'cloudinary',
-    'cloudinary_storage',
+    # 'cloudinary_storage',
     'user_auth',
 ]
 
