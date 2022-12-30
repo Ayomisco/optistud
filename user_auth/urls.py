@@ -7,5 +7,5 @@ urlpatterns = [
     path('login/', Login, name='login'),
     path('logout/', logout_view, name='logout'),
     # path('logout/', logout_view, name='logout'),
-    path('edit_profile/<str:username>/', edit_profile, name='edit_profile'),
+    # path('profile/edit/', EditProfile, name='edit-profile'),
 ]

@@ -25,7 +25,7 @@ urlpatterns = [
     path('', include('studyapp.urls')),
     path('account/', include('user_auth.urls')),
     # re_path(r'^(profile/?P\<username>\w+)/$',UserProfile, name='profile'),
-    path('profile/<str:username>/', UserProfile, name='profile'),
+    path('profile/', UserProfile, name='profile'),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
@@ -35,6 +35,7 @@ admin.site.site_title = "Optimum Study Admin Portal"
 admin.site.index_title = "Welcome to Optimum Admin Website"
 
 handler404 = 'studyapp.views.error_404'
+handler500 = 'studyapp.views.error_500'
 
 
 

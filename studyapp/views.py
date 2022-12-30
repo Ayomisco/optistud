@@ -2,6 +2,7 @@ import random
 from django.shortcuts import get_object_or_404, render, redirect
 from django.template import loader
 from django.http import HttpResponse, HttpResponseRedirect
+from django.urls import reverse
 import requests
 
 from studyapp.forms import *
@@ -38,7 +39,7 @@ def error_404(request, exception):
         data = {}
         return render(request,'404.html', data)
 
-def error_500(request, exception):
+def error_500(request):
         data = {}
         return render(request,'500.html',  status=500)
 
@@ -53,23 +54,11 @@ def index(request):
         return redirect("login")
     else:
         
-        try:
-            # Profile.objects.get(user=request.user) is not None:
-            profile = Profile.objects.get(user=request.user)
-            context = {
-                'profile': profile
+        profile = Profile.objects.all()
+        context = {
+            'profile': profile
 
-            }
-        except Profile.DoesNotExist:
-            # user = get_object_or_404(User, username=username)
-            context = {
-                # 'profile': profile
-
-            }
-            template = loader.get_template('edit-profile.html')
-            return HttpResponse(template.render(context, request))
-        
-        
+        }
         template = loader.get_template('index.html')
         
         return HttpResponse(template.render(context, request))
@@ -83,7 +72,7 @@ def notes(request):
         # return render(request, 'authentication/login.html')
         return redirect("login")
     else:
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.all()
         form = NotesForm()
         
 
@@ -187,7 +176,7 @@ def Homeworks(request):
         homework_done = True
     else:
         homework_done = False
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.all()
     template = loader.get_template('homework.html')
     
     context = {
@@ -244,7 +233,7 @@ def Youtube(request):
             }
         return render(request, 'youtube.html', context)
     else:
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.all()
         form = DashboardSearchForm()
     template = loader.get_template('youtube.html')
     context = {
@@ -262,7 +251,7 @@ def Todo(request):
         # return render(request, 'authentication/login.html')
         return redirect("login")
     
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.all()
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
@@ -366,7 +355,7 @@ def books(request):
 
     form = DashboardSearchForm()
 
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.all()
     template = loader.get_template('books.html')
     context = {
         'form': form,
@@ -420,7 +409,7 @@ def Dictionary(request):
         return render(request, 'dictionary.html', context)
     else:
         form = DashboardSearchForm()
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.all()
         template = loader.get_template('dictionary.html')
         context = {
         'form': form,
@@ -466,7 +455,7 @@ def Wiki(request):
             return render(request, 'wiki.html', context)
     form = DashboardSearchForm()
 
-    profile = Profile.objects.get(user=request.user)
+    profile = Profile.objects.all()
     template = loader.get_template('wiki.html')
     context = {
         'form': form,
@@ -532,7 +521,7 @@ def Conversion(request):
 
 
         form = ConversionForm()
-        profile = Profile.objects.get(user=request.user)
+        profile = Profile.objects.all()
         template = loader.get_template('conversion.html')
         
         context = {
@@ -600,7 +589,7 @@ def Help(request):
         form = HelpForm()
 
 
-    
+    profile = Profile.objects.all()
     template = loader.get_template('help.html')
     
     context = {

@@ -6,101 +6,68 @@ from django.contrib.auth import logout
 
 # Model and Forms
 from django.contrib.auth.models import User
-from django.urls import reverse
 from user_auth.models import *
 from user_auth.forms import *
 from studyapp.views import *
 # Create your views here.
 from django.contrib.auth import authenticate, login
 
-def UserProfile(request, username):
-    if not request.user.is_authenticated:
-        # return render(request, 'authentication/login.html')
-        return redirect("login")
-    # user = User.objects.get(username=username)
-    user = get_object_or_404(User, username=username)
-    # profile = get_object_or_404(Profile, user=user)
-    profile = Profile.objects.get(user=user)
+
+# def UserProfile(request, username):
+    # if not request.user.is_authenticated:
+    #     # return render(request, 'authentication/login.html')
+    #     return redirect("login")
+    # # user = User.objects.get(username=username)
+    # user = get_object_or_404(User, username=username)
+    # # profile = get_object_or_404(Profile, user=user)
+    # profile = Profile.objects.get(user=user)
+
+    # profile_d = Profile.objects.get(user__id=user)
+    # user = request.user.id
+    # if request.method == 'POST':
+    #     form = EditProfileForm(request.POST or None, request.FILES, instance=request.user)
+    #     if form.is_valid():
+    #         profile_d.profile_pic = form.cleaned_data.get('profile_pic')
+    #         # profile.profile_banner = form.cleaned_data.get('profile_banner')
+    #         profile_d.first_name = form.cleaned_data.get('first_name')
+    #         profile_d.last_name = form.cleaned_data.get('last_name')
+    #         profile_d.location = form.cleaned_data.get('location')
+    #         profile_d.github_url = form.cleaned_data.get('github_url')
+    #         profile_d.profile_info = form.cleaned_data.get('profile_info')
+    #         profile_d.twitter_url = form.cleaned_data.get('phone')
+    #         profile_d.github_url = form.cleaned_data.get('twitter_url')
+    #         profile_d.instagram_url = form.cleaned_data.get('instagram_url')
+    #         profile_d.facebook_url = form.cleaned_data.get('facebook_url')
+
+    #         profile_d.save()
+    #         # update_session_auth_hash(request, user)
+    #         return redirect('profile')
+    #         # return HttpResponseRedirect( 'profile' )
+
+    # else:
+    #     form = EditProfileForm(instance=request.user)
+    # template = loader.get_template('profile.html')
+
+
+   
+    # context = {
+    #     'form': form,
+    #     'profile': profile
+
+    # }
     
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST or None, request.FILES, instance=profile)
-        if form.is_valid():
-            profile.profile_pic = form.cleaned_data.get('profile_pic')
-            # profile.profile_banner = form.cleaned_data.get('profile_banner')
-            profile.first_name = form.cleaned_data.get('first_name')
-            profile.last_name = form.cleaned_data.get('last_name')
-            profile.location = form.cleaned_data.get('location')
-            profile.github_url = form.cleaned_data.get('github_url')
-            profile.profile_info = form.cleaned_data.get('profile_info')
-            profile.twitter_url = form.cleaned_data.get('phone')
-            profile.github_url = form.cleaned_data.get('twitter_url')
-            profile.instagram_url = form.cleaned_data.get('instagram_url')
-            profile.facebook_url = form.cleaned_data.get('facebook_url')
+    # return HttpResponse(template.render(context, request))
 
-            profile.save()
-            # update_session_auth_hash(request, user)
-            # return redirect('profile')
-            return HttpResponseRedirect( 'profile')
-
-    else:
-        form = EditProfileForm(instance=profile)
-    template = loader.get_template('profile.html')
+def UserProfile(request):
+    template = loader.get_template('work_in_prog.html')
 
 
    
     context = {
-        'form': form,
-        'profile': profile
-
+        
     }
-    return HttpResponse(template.render(context, request))
-
-def edit_profile(request, username):
-    if not request.user.is_authenticated:
-        # return render(request, 'authentication/login.html')
-        return redirect("login")
-    # user = User.objects.get(username=username)
-    user = get_object_or_404(User, username=username)
-    # profile = get_object_or_404(Profile, user=user)
-    profile = Profile.objects.get(user=user)
     
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST or None, request.FILES, instance=profile)
-        if form.is_valid():
-            profile.profile_pic = form.cleaned_data.get('profile_pic')
-            # profile.profile_banner = form.cleaned_data.get('profile_banner')
-            profile.first_name = form.cleaned_data.get('first_name')
-            profile.last_name = form.cleaned_data.get('last_name')
-            profile.location = form.cleaned_data.get('location')
-            profile.github_url = form.cleaned_data.get('github_url')
-            profile.profile_info = form.cleaned_data.get('profile_info')
-            profile.twitter_url = form.cleaned_data.get('phone')
-            profile.github_url = form.cleaned_data.get('twitter_url')
-            profile.instagram_url = form.cleaned_data.get('instagram_url')
-            profile.facebook_url = form.cleaned_data.get('facebook_url')
-
-            profile.save()
-            # update_session_auth_hash(request, user)
-            # return redirect('profile')
-            return HttpResponseRedirect( f'profile')
-
-    else:
-        form = EditProfileForm(instance=profile)
-        template = loader.get_template('edit-profile.html')
-
-
-   
-    context = {
-        'form': form,
-        'profile': profile
-
-    }
     return HttpResponse(template.render(context, request))
-
-# class UserProfile(DetailView):
-#     model = Profile
-#     template_name = 'profile.html'
-#     slug_field = "user__username"
 
 def Login(request):
     
@@ -118,8 +85,7 @@ def Login(request):
             if user is not None:
                 login(request, user)
                 messages.success(request, f"Welcome back {request.user.username}! ")
-                url = reverse(f'index')
-                return HttpResponseRedirect(url)
+                return redirect('index')
                 
     else:
         print('error')
