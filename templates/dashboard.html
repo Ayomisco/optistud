@@ -1,0 +1,251 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study | Dashboard
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Dashboard
+{% endblock page_title %}
+    
+{% block content %}
+
+
+                     <!-- row -->
+                   <div class="row mb-5">
+
+                      <div class="col-md-3 mb-3">
+                        <div class="card">
+                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{% static  'assets/images/landing_page/notes.png' %}" class="img-fluid imged"/>
+                            <a href="{% url 'notes' %}">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Notes</h5>
+                            <p class="card-text">
+                            Create notes to refer them later.
+                            They are stored permanently until deleted.</p>
+                            <a href="{% url 'notes' %}" class="btn btn-primary">Create Note</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <div class="card">
+                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{% static  'assets/images/landing_page/todo.jpg' %}" class="img-fluid imged"/>
+                            <a href="{% url 'todo' %}">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">TODO</h5>
+                            <p class="card-text">
+                              Add your ToDo lists for yourself and remove them as soon as you finish
+                            </p>
+                            <a href="{% url 'todo' %}" class="btn btn-primary">Create Todo</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <div class="card">
+                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{% static  'assets/images/landing_page/homework.jpeg' %}" class="img-fluid imged"/>
+                            <a href="{% url 'homework' %}">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Homework</h5>
+                            <p class="card-text">                      Add homeworks and assign deadlines. They will be displayed prioritised by deadlines.                           </p>
+                            <a href="{% url 'homework' %}" class="btn btn-primary">Check Homework</a>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="col-md-3 mb-3">
+                        <div class="card">
+                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                            <img src="{% static  'assets/images/landing_page/youtube.webp' %}" class="img-fluid imged"/>
+                            <a href="{% url 'youtube' %}">
+                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                            </a>
+                          </div>
+                          <div class="card-body">
+                            <h5 class="card-title">Youtube</h5>
+                            <p class="card-text">       
+                              Search youtube and select your desired video to play it on YouTube
+                            </p>
+                            <a href="{% url 'youtube' %}" class="btn btn-primary">Check Youtube</a>
+                          </div>
+                        </div>
+                      </div>  
+
+                      
+
+                   </div>
+                   <!-- end row -->
+
+
+                  <!-- row -->
+                  <div class="row  mb-5">
+
+                    <div class="col-md-3 mb-3">
+                      <div class="card">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{% static  'assets/images/landing_page/dictionary.jpeg' %}" class="img-fluid imged"/>
+                          <a href="{% url 'dictionary' %}">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body cb">
+                          <h5 class="card-title">DICTIONARY</h5>
+                          <p class="card-text">
+                            A vocabulary from a book is troubling you? No problem, enter the word and 
+                            the meaning will be displayed almost instantaneously.
+                          </p>
+                          <a href="{% url 'dictionary' %}" class="btn btn-primary">Make a search</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <div class="card">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{% static  'assets/images/landing_page/wiki.webp' %}" class="img-fluid imged"/>
+                          <a href="{% url 'wiki' %}">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body cb">
+                          <h5 class="card-title">WikiPedia</h5>
+                          <p class="card-text">
+                            Homework and Assignments? Search wikipedia to get fast results.
+                          </p>
+                          <a href="{% url 'wiki' %}" class="btn btn-primary">Create</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <div class="card">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{% static  'assets/images/landing_page/conversion.png' %}" class="img-fluid imged"/>
+                          <a href="{% url 'conversion' %}">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body cb">
+                          <h5 class="card-title">Conversion</h5>
+                          <p class="card-text">                   
+                            Check out the conversion table that helps you to convert measurements to more familiar ones of your choice
+                          </p>
+                          <a href="{% url 'conversion' %}" class="btn btn-primary">Check Homework</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="col-md-3 mb-3">
+                      <div class="card">
+                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
+                          <img src="{% static  'assets/images/landing_page/books1.jpeg' %}" class="img-fluid imged"/>
+                          <a href="{% url 'books' %}">
+                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
+                          </a>
+                        </div>
+                        <div class="card-body cb">
+                          <h5 class="card-title">BOOKS</h5>
+                          <p class="card-text">       
+                            Browse books from a list of neatly organized book menu
+                          </p>
+                          <a href="{% url 'books' %}" class="btn btn-primary">Browse</a>
+                        </div>
+                      </div>
+                    </div>
+
+                    
+
+                  </div>
+                  <!-- end row -->
+
+
+
+
+
+                   <!-- Calendar Row -->
+                     <!-- row -->
+                     <div class="row">
+                      <!-- invoice section -->
+                      <div class="col-md-12">
+                         <div class="white_shd full margin_bottom_30">
+                            <div class="full graph_head">
+                               <div class="heading1 margin_0">
+                                  <h2><i class="fa fa-calendar" aria-hidden="true"></i> Calendar</h2>
+                               </div>
+                            </div>
+                            <div class="full padding_infor_info">
+                               <div class="invoice_inner">
+                                  <div class="row">
+                                     <div class="col-md-12">
+                                        <div class="white_shd full margin_bottom_30">
+                                           <div class="full graph_head">
+                                              <div class="heading1 margin_0">
+                                                 <h2>Calendar</h2>
+                                              </div>
+                                           </div>
+                                           <div class="full progress_bar_inner">
+                                              <div class="row">
+                                                 <div class="col-md-12">
+                                                    <div class="full">
+                                                       <div class="ui calendar" id="example14"></div>
+                                                    </div>
+                                                 </div>
+                                              </div>
+                                           </div>
+                                        </div>
+                                     </div>
+                                  </div>
+                               </div>
+                            </div>
+                         </div>
+                      </div>
+                   </div>
+                   <!-- row -->
+
+                            <!-- model popup -->
+         <!-- The Modal -->
+         <div class="modal fade" id="myModal">
+          <div class="modal-dialog">
+             <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                   <h4 class="modal-title">Modal Heading</h4>
+                   <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <!-- Modal body -->
+                <div class="modal-body">
+                   Modal body..
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+             </div>
+          </div>
+       </div>
+       <!-- end model popup -->
+
+
+
+
+
+
+
+   
+{% endblock content %}
+           
+

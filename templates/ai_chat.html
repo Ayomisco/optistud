@@ -1,0 +1,105 @@
+{% extends 'base.html' %} 
+{% load static %}
+
+{% block title %}
+    Optimum Study | Notes
+{% endblock title %}
+
+{% block page_title %}
+    Optimum Study / Note Detail
+{% endblock page_title %}
+    
+{% block content %}
+
+
+  <!-- row -->
+  <div class="row column1">
+    <div class="col-md-12">
+
+
+      <br>
+      <div class="container">
+        <div class="row">
+              <div class="col-md-6 mx-auto">
+                  <div class="card">
+                      <div class="card-header text-center">
+                          <span>AI Chat Box</span>
+                      </div>
+                      <div class="card-body chat-care">
+                          <ul class="chat">
+                              
+                            <hr>
+
+                            
+
+        {% for message in chat_history %}
+        {% if message.user_input %}
+                              <li class="agent clearfix">
+
+                                  <span class="chat-img left clearfix mx-2">
+                                      <img src="{%if profile.profile_pic.url %} {{profile.profile_pic.url}} {%endif%}" alt="Agent" class="img-circle" />
+                                  </span>
+                                  <div class="chat-body clearfix">
+                                      <div class="header clearfix">
+                                          <strong class="primary-font">{{ message.user.username }}</strong> <small class="right text-muted">
+                                              <span class="glyphicon glyphicon-time"></span>{{ message.timestamp|timesince }} ago</small>
+                                      </div>
+                                      <p>
+                                        {{ message.user_input }}
+                                      </p>
+                                  </div>
+                              </li>
+
+        {% endif %}
+
+                              {% if message.chatbot_response %}
+                              <li class="admin clearfix">
+                                  <span class="chat-img right clearfix  mx-2">
+                                      <img src="https://cdn-icons-png.flaticon.com/512/1985/1985496.png" alt="Admin" class="img-circle ai_img" />
+                                  </span>
+                                  <div class="chat-body clearfix">
+                                      <div class="header clearfix">
+                                          <small class="left text-muted"><span class="glyphicon glyphicon-time"></span>{{ message.timestamp|timesince }} ago</small>
+                                          <strong class="right primary-font">AI</strong>
+                                      </div>
+                                      <p>
+                                          {{ message.chatbot_response }}
+                                      </p>
+                                  </div>
+                              </li>
+
+                              {% endif %}                            
+
+
+        {% endfor %}
+                          </ul>
+                      </div>
+                      <div class="card-footer">
+                        <form method="post">
+                            {% csrf_token %}
+                          <div class="input-group">
+                              <input id="btn-input" type="text" name="user_input" class="form-control input-sm" placeholder="Type your message here..." />
+                              
+                              <span class="input-group-btn">
+                                
+                                  <button class="btn btn-primary" id="btn-chat" type='submit'>
+                                      Send</button>
+                              </span>
+                          </div>
+                        </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      
+      </div>
+   </div>
+
+
+
+
+
+
+{% endblock content %}

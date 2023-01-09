@@ -8,6 +8,9 @@ from django.contrib import messages
 from user_auth.models import *
 
 
+class ChatForm(forms.Form):
+    user_input = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control input-sm', 'placeholder': 'Type your message here...'}),  max_length=1024)
+
 class SignupForm(forms.ModelForm):
      username = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control form-control-lg'}), max_length=30, required=True)
      email = forms.CharField(
@@ -59,23 +62,24 @@ class LoginForm(forms.Form):
 
 
 class EditProfileForm(forms.ModelForm):
-    profile_pic = forms.ImageField(widget=forms.FileInput(attrs={'class':'custom-file-input'
+    profile_pic = forms.ImageField(widget=forms.FileInput(attrs={'class':'custom-file-input form-control-lg'
                             }), required=False)
     first_name = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'First Name'}), max_length=50, required=False)
+        widget=forms.TextInput(attrs={'class': 'form-control  form-control-lg', 'placeholder': 'First Name'}), max_length=50, required=False)
     last_name = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Second Name'}), max_length=50, required=False)
+        widget=forms.TextInput(attrs={'class': 'form-control  form-control-lg', 'placeholder': 'Second Name'}), max_length=50, required=False)
     location = forms.CharField(
-        widget=forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Location'}), max_length=25, required=False)
-    
+        widget=forms.TextInput(attrs={'class': 'form-control ', 'placeholder': 'Location'}), max_length=25, required=False)
+    phone = forms.IntegerField(
+        widget=forms.NumberInput(attrs={'class': 'form-control ', 'placeholder': 'phone'}), required=False)
     github_url = forms.URLField(
-        widget=forms.URLInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Github url'}), max_length=200, required=False)
+        widget=forms.URLInput(attrs={'class': 'form-control ', 'placeholder': 'Github url'}), max_length=200, required=False)
     twitter_url = forms.URLField(
-        widget=forms.URLInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Twitter url'}), max_length=200, required=False)
+        widget=forms.URLInput(attrs={'class': 'form-control ', 'placeholder': 'Twitter url'}), max_length=200, required=False)
     facebook_url = forms.URLField(
-        widget=forms.URLInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'facebook url'}), max_length=200, required=False)
+        widget=forms.URLInput(attrs={'class': 'form-control ', 'placeholder': 'facebook url'}), max_length=200, required=False)
     instagram_url = forms.URLField(
-        widget=forms.TextInput(attrs={'class': 'form-control mr-sm-2', 'placeholder': 'Instagram url'}), max_length=200, required=False)
+        widget=forms.TextInput(attrs={'class': 'form-control  form-control-lg', 'placeholder': 'Instagram url'}), max_length=200, required=False)
     
     profile_info = forms.CharField(
         widget=forms.Textarea(attrs={'class':'form-control', 

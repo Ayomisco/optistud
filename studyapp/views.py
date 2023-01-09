@@ -44,25 +44,37 @@ def error_500(request):
         return render(request,'500.html',  status=500)
 
 
-
-
-
-
 def index(request):
+  
+    
+    
+    context = {
+      
+
+    }
+    template = loader.get_template('index.html')
+    
+    return HttpResponse(template.render(context, request))
+    # return render(request, 'dashboard.html')
+
+
+
+
+def Dashboard(request):
     if not request.user.is_authenticated:
         # return render(request, 'authentication/login.html')
         return redirect("login")
-    else:
-        
-        profile = Profile.objects.all()
-        context = {
-            'profile': profile
+   
+    
+    profile = Profile.objects.get(user=request.user)
+    context = {
+        'profile': profile
 
-        }
-        template = loader.get_template('index.html')
-        
-        return HttpResponse(template.render(context, request))
-    # return render(request, 'index.html')
+    }
+    template = loader.get_template('dashboard.html')
+    
+    return HttpResponse(template.render(context, request))
+    # return render(request, 'dashboard.html')
 
 
 
@@ -72,7 +84,7 @@ def notes(request):
         # return render(request, 'authentication/login.html')
         return redirect("login")
     else:
-        profile = Profile.objects.all()
+        profile = Profile.objects.get(user=request.user)
         form = NotesForm()
         
 
@@ -116,9 +128,13 @@ def DeleteNote(request, pk=None):
 
 class NoteDetailView(DetailView):
     model = Notes
-    # template = loader.get_template('note_detail.html')
-    context_object_name = 'note'
     template_name = 'notes_detail.html'
+    context_object_name = 'note'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['profile'] = Profile.objects.get(user=self.request.user)
+        return context
     
     
     # return HttpResponse(template.render(context, request))
@@ -176,7 +192,7 @@ def Homeworks(request):
         homework_done = True
     else:
         homework_done = False
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
     template = loader.get_template('homework.html')
     
     context = {
@@ -233,7 +249,7 @@ def Youtube(request):
             }
         return render(request, 'youtube.html', context)
     else:
-        profile = Profile.objects.all()
+        profile = Profile.objects.get(user=request.user)
         form = DashboardSearchForm()
     template = loader.get_template('youtube.html')
     context = {
@@ -251,7 +267,7 @@ def Todo(request):
         # return render(request, 'authentication/login.html')
         return redirect("login")
     
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
     if request.method == 'POST':
         form = TodoForm(request.POST)
         if form.is_valid():
@@ -355,7 +371,7 @@ def books(request):
 
     form = DashboardSearchForm()
 
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
     template = loader.get_template('books.html')
     context = {
         'form': form,
@@ -409,7 +425,7 @@ def Dictionary(request):
         return render(request, 'dictionary.html', context)
     else:
         form = DashboardSearchForm()
-        profile = Profile.objects.all()
+        profile = Profile.objects.get(user=request.user)
         template = loader.get_template('dictionary.html')
         context = {
         'form': form,
@@ -455,7 +471,7 @@ def Wiki(request):
             return render(request, 'wiki.html', context)
     form = DashboardSearchForm()
 
-    profile = Profile.objects.all()
+    profile = Profile.objects.get(user=request.user)
     template = loader.get_template('wiki.html')
     context = {
         'form': form,
@@ -521,7 +537,7 @@ def Conversion(request):
 
 
         form = ConversionForm()
-        profile = Profile.objects.all()
+        profile = Profile.objects.get(user=request.user)
         template = loader.get_template('conversion.html')
         
         context = {

@@ -25,7 +25,8 @@ urlpatterns = [
     path('', include('studyapp.urls')),
     path('account/', include('user_auth.urls')),
     # re_path(r'^(profile/?P\<username>\w+)/$',UserProfile, name='profile'),
-    path('profile/', UserProfile, name='profile'),
+    path('profile/<username>/', UserProfile, name='profile'),
+    path('chat/', AiChat, name='chat'),
 
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

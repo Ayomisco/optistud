@@ -38,7 +38,7 @@ class NotesForm(forms.ModelForm):
 
 
 
-class   homeworkForm(forms.ModelForm):
+class homeworkForm(forms.ModelForm):
     subject = forms.CharField(widget=forms.TextInput(attrs={'class':'form-control', 
                             'placeholder': 'Enter subject name'}), max_length=150, required=True)
 

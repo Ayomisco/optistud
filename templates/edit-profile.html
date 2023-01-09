@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>Update Profile</title>
 
     <!-- Font Awesome -->
 <link
@@ -25,105 +25,81 @@ rel="stylesheet"
 </head>
 <body>
     
-</body>
-</html>
-<section class="vh-100" style="background-color: #0d234d;">
+
+<section class="vh-120" style="background-color: #0d234d;">
     <div class="container py-5 h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-8 col-lg-6 col-xl-5">
           <div class="card shadow-2-strong" style="border-radius: 1rem;">
-            <div class="card-body p-5 text-center">
+            <div class="card-body p-5 text-left">
   
-              <h3 class="mb-5">Sign in</h3>
+              <h3 class="mb-5">Update Profile</h3>
+              <form method="post" enctype="multipart/form-data" role="form">
+               
+                {% csrf_token %}
+              <div class="modal-body">
+               
+                  <div class="form-group">
+                    <!-- <label for="title text-left">First Name</label> -->
+                    
+                    {{form.first_name}}
+                   </div>
+       
+                   <div class="form-group">
+                      <label for="title">Last Name</label>
+                      {{form.last_name}}
+                   </div>
+       
+                   <div class="form-group">
+                      <label for="title">Location</label>
+                      {{form.location}}
+                   </div>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-    <div class="modal-content">
-        <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">+ Add a new note</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        </div>
- 
-        <form method="post" enctype="multipart/form-data" role="form">
-          
-          {% csrf_token %}
-        <div class="modal-body">
- 
-            <div class="form-group">
-              <label for="title">First Name</label>
-              
-              {{form.first_name}}
+                   <div class="form-group">
+                     <label for="title">Phone</label>
+                     {{form.phone}}
+                  </div>
+       
+                   <div class="form-group">
+                      <label for="title">Twitter Link</label>
+                      {{form.twitter_url}}
+                   </div>
+       
+                   <div class="form-group">
+                      {{ form.github_url.errors }}
+                      <label for="title">GitHub</label>
+                      {{form.github_url}}
+                   </div>
+       
+                   <div class="form-group">
+                      <label for="title">Facebook</label>
+                      {{form.facebook_url}}
+                   </div>
+       
+                   <div class="form-group">
+                      <label for="title">instagram</label>
+                      {{form.instagram_url}}
+                   </div>
+       
+                   <div class="form-group">
+                      <label for="title">Profile Info</label>
+                      {{form.profile_info}}
+                   </div>
+       
+       
+       
+                <div class="custom-file">
+                   {{form.profile_pic}}         
+                   <label class="custom-file-label" for="customFile">Choose file</label>
+                 </div>
+       
+                 
+                  <div class="modal-footer">
+                  <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
+                  <button type="submit" class="btn btn-primary">Create</button>
+                  </div>
              </div>
- 
-             <div class="form-group">
-                <label for="title">Last Name</label>
-                {{form.last_name}}
-             </div>
- 
-             <div class="form-group">
-                <label for="title">Location</label>
-                {{form.location}}
-             </div>
- 
-             <div class="form-group">
-                <label for="title">Twitter Link</label>
-                {{form.twitter_url}}
-             </div>
- 
-             <div class="form-group">
-                {{ form.github_url.errors }}
-                <label for="title">GitHub</label>
-                {{form.github_url}}
-             </div>
- 
-             <div class="form-group">
-                <label for="title">Facebook</label>
-                {{form.facebook_url}}
-             </div>
- 
-             <div class="form-group">
-                <label for="title">instagram</label>
-                {{form.instagram_url}}
-             </div>
- 
-             <div class="form-group">
-                <label for="title">Profile Info</label>
-                {{form.profile_info}}
-             </div>
- 
- 
- 
-          <div class="custom-file">
-             {{form.profile_pic}}         
-             <label class="custom-file-label" for="customFile">Choose file</label>
-           </div>
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-        </div>
-            <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create</button>
-            </div>
-        </form>
-        
-        
-    </div>
-    </div>
- </div>
+              </form>
 
 </div>
 </div>

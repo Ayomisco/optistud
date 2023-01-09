@@ -1,8 +1,10 @@
 from django.urls import path
 from .views import *
+from user_auth.views import *
 
 urlpatterns = [
     path('', index, name='index'),
+    path('dashboard/', Dashboard, name='dashboard'),
     path('notes/', notes, name='notes'),
     path('delete_note/<int:pk>/', DeleteNote, name='delete-note'),
 
@@ -24,6 +26,7 @@ urlpatterns = [
 
     # path('login/', ToDo, name='login'),
     path('help/', Help, name='help'),
+
 
 
 

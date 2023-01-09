@@ -1,251 +1,187 @@
-{% extends 'base.html' %} 
 {% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-{% block title %}
-    Optimum Study | Dashboard
-{% endblock title %}
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-{% block page_title %}
-    Optimum Study / Dashboard
-{% endblock page_title %}
+    <title>Study Platform</title>
+
+    <style>
+      nav, footer{
+        background-color: #ec5322 !important;
+      }
+
+      .imged{
+            height: 230px;
+    object-fit:fill !important;
+    width: 300px;
+         }
+
+
+      .navbar-brand{
+        color: aliceblue;
+        font-weight: 900;
+        font-size: 1.9em;
+      }
+      .navbar-brand span{
+        color: #214162;
+      }
+
+      .nav-link{
+        color: aliceblue !important;
+      }
+
+      .nav-link:hover{
+        color: aliceblue !important;
+        border: 1 solid;
+        border-radius: 12px;
+      }
+
+      #features .all{
+        background-color: #83a547 !important;
+      }
+      .jumbotron{
+        background-color: #15283c;
+        color: white;
+      }
+
+      .borderbox{
+        /* border: 1px solid #ec5322 !important; */
+        /* background-color:#ec5322; */
+        width: 40%;
+      }
+
+    </style>
+
+  </head>
+  
+  
+    <!-- Navigation -->
+    <div class="container all" >
+    <nav class="navbar navbar-expand-lg navbar-light " style="color: aliceblue !important;">
+      <a class="navbar-brand" style="color: aliceblue !important; " href="#">Opti<span>Study</span> </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="{ url 'index'}">Home</a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="#features">Features</a>
+          </li>
+       
+          <li class="nav-item">
+            {% if not request.user.is_authenticated %}
+            <a class="nav-link" href="{% url 'login' %}">Sign In</a>
+            {% endif %}
+            
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-4">Welcome to OPtimum Study Platform</h1>
+        <p class="lead">Your one-stop solution for all your study needs</p>
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Get Started</a>
+      </div>
+    </div>
+
+    <!-- Features -->
+    <div class="container mt-5" id="features">
+      <h2>Features</h2>
+      <div class="row">
+        <div class="col-md-4 borderbox">
+          <h3>AI Chat Bot</h3>
+          <p>Securely log in to your account and access all your study materials and tools in one place.</p>
+          <img src="authentication.png" alt="User authentication icon" class="img-fluid imged mt-3">
+        </div>
+        <div class="col-md-4 borderbox">
+          <h3>To-Do List App</h3>
+          <p>Stay organized and on top of your tasks with our easy-to-use to-do list app.</p>
+          <img src="{% static  'assets/images/landing_page/todo.jpg' %}" alt="To-do list app icon" class="img-fluid imged mt-3 imged">
+        </div>
+        <div class="col-md-4 borderbox">
+          <h3>Homework Management</h3>
+          <p>Easily upload and manage your homework assignments in one convenient location.</p>
+          <img src="{% static  'assets/images/landing_page/homework.jpeg' %}" alt="Homework management icon" class="img-fluid imged mt-3">
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4 borderbox" >
+          <h3>YouTube Search</h3>
+          <p>Find and watch educational videos on a variety of topics with our integrated YouTube search.</p>
+          <img src="{% static  'assets/images/landing_page/youtube.webp' %}" alt="YouTube search icon" class="img-fluid imged mt-3">
+        </div>
+        <div class="col-md-4 borderbox">
+          <h3>Notes Taking</h3>
+          <p>Take and store notes in a variety of formats, including text, audio, and video.</p>
+          <img src="{% static  'assets/images/landing_page/notes.png' %}" alt="Notes taking icon" class="img-fluid imged mt-3">
+        </div>
+        <div class="col-md-4 borderbox">
+          <h3>Dictionary Search</h3>
+          <p>Look up definitions and synonyms for words with our built-in dictionary search feature.</p>
+          <img src="{% static  'assets/images/landing_page/dictionary.jpeg' %}" alt="Dictionary search icon" class="img-fluid imged mt-3">
+        </div>
+      </div>
+      <div class="row mt-5">
+        <div class="col-md-4 borderbox">
+          <h3>Wikipedia Search</h3>
+          <p>Find information on a wide range of topics with our Wikipedia search feature.</p>
+          <img src="{% static  'assets/images/landing_page/wiki.webp' %}" alt="Wikipedia search icon" class="img-fluid imged mt-3">
+        </div>
+        <div class="col-md-4 borderbox">
+          <h3>Google Books Search</h3>
+          <p>Find and read books on a variety of subjects with our Google Books search feature.</p>
+          <img src="{% static  'assets/images/landing_page/books1.jpeg' %}" alt="Google Books search icon" class="img-fluid imged mt-3">
+        </div>
+
+        <div class="col-md-4 borderbox">
+          <h3>User Authentication</h3>
+          <p>Securely log in to your account and access all your study materials and tools in one place.</p>
+          <img src="authentication.png" alt="User authentication icon" class="img-fluid imged mt-3">
+        </div>
+      </div>
+    </div>
     
-{% block content %}
-
-
-                     <!-- row -->
-                   <div class="row mb-5">
-
-                      <div class="col-md-3 mb-3">
-                        <div class="card">
-                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{% static  'assets/images/landing_page/notes.png' %}" class="img-fluid imged"/>
-                            <a href="{% url 'notes' %}">
-                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                          </div>
-                          <div class="card-body">
-                            <h5 class="card-title">Notes</h5>
-                            <p class="card-text">
-                            Create notes to refer them later.
-                            They are stored permanently until deleted.</p>
-                            <a href="{% url 'notes' %}" class="btn btn-primary">Create Note</a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <div class="card">
-                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{% static  'assets/images/landing_page/todo.jpg' %}" class="img-fluid imged"/>
-                            <a href="{% url 'todo' %}">
-                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                          </div>
-                          <div class="card-body">
-                            <h5 class="card-title">TODO</h5>
-                            <p class="card-text">
-                              Add your ToDo lists for yourself and remove them as soon as you finish
-                            </p>
-                            <a href="{% url 'todo' %}" class="btn btn-primary">Create Todo</a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <div class="card">
-                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{% static  'assets/images/landing_page/homework.jpeg' %}" class="img-fluid imged"/>
-                            <a href="{% url 'homework' %}">
-                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                          </div>
-                          <div class="card-body">
-                            <h5 class="card-title">Homework</h5>
-                            <p class="card-text">                      Add homeworks and assign deadlines. They will be displayed prioritised by deadlines.                           </p>
-                            <a href="{% url 'homework' %}" class="btn btn-primary">Check Homework</a>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="col-md-3 mb-3">
-                        <div class="card">
-                          <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                            <img src="{% static  'assets/images/landing_page/youtube.webp' %}" class="img-fluid imged"/>
-                            <a href="{% url 'youtube' %}">
-                              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                            </a>
-                          </div>
-                          <div class="card-body">
-                            <h5 class="card-title">Youtube</h5>
-                            <p class="card-text">       
-                              Search youtube and select your desired video to play it on YouTube
-                            </p>
-                            <a href="{% url 'youtube' %}" class="btn btn-primary">Check Youtube</a>
-                          </div>
-                        </div>
-                      </div>  
-
-                      
-
-                   </div>
-                   <!-- end row -->
-
-
-                  <!-- row -->
-                  <div class="row  mb-5">
-
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                          <img src="{% static  'assets/images/landing_page/dictionary.jpeg' %}" class="img-fluid imged"/>
-                          <a href="{% url 'dictionary' %}">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                          </a>
-                        </div>
-                        <div class="card-body cb">
-                          <h5 class="card-title">DICTIONARY</h5>
-                          <p class="card-text">
-                            A vocabulary from a book is troubling you? No problem, enter the word and 
-                            the meaning will be displayed almost instantaneously.
-                          </p>
-                          <a href="{% url 'dictionary' %}" class="btn btn-primary">Make a search</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                          <img src="{% static  'assets/images/landing_page/wiki.webp' %}" class="img-fluid imged"/>
-                          <a href="{% url 'wiki' %}">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                          </a>
-                        </div>
-                        <div class="card-body cb">
-                          <h5 class="card-title">WikiPedia</h5>
-                          <p class="card-text">
-                            Homework and Assignments? Search wikipedia to get fast results.
-                          </p>
-                          <a href="{% url 'wiki' %}" class="btn btn-primary">Create</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                          <img src="{% static  'assets/images/landing_page/conversion.png' %}" class="img-fluid imged"/>
-                          <a href="{% url 'conversion' %}">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                          </a>
-                        </div>
-                        <div class="card-body cb">
-                          <h5 class="card-title">Conversion</h5>
-                          <p class="card-text">                   
-                            Check out the conversion table that helps you to convert measurements to more familiar ones of your choice
-                          </p>
-                          <a href="{% url 'conversion' %}" class="btn btn-primary">Check Homework</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="col-md-3 mb-3">
-                      <div class="card">
-                        <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-                          <img src="{% static  'assets/images/landing_page/books1.jpeg' %}" class="img-fluid imged"/>
-                          <a href="{% url 'books' %}">
-                            <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
-                          </a>
-                        </div>
-                        <div class="card-body cb">
-                          <h5 class="card-title">BOOKS</h5>
-                          <p class="card-text">       
-                            Browse books from a list of neatly organized book menu
-                          </p>
-                          <a href="{% url 'books' %}" class="btn btn-primary">Browse</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    
-
-                  </div>
-                  <!-- end row -->
-
-
-
-
-
-                   <!-- Calendar Row -->
-                     <!-- row -->
-                     <div class="row">
-                      <!-- invoice section -->
-                      <div class="col-md-12">
-                         <div class="white_shd full margin_bottom_30">
-                            <div class="full graph_head">
-                               <div class="heading1 margin_0">
-                                  <h2><i class="fa fa-calendar" aria-hidden="true"></i> Calendar</h2>
-                               </div>
-                            </div>
-                            <div class="full padding_infor_info">
-                               <div class="invoice_inner">
-                                  <div class="row">
-                                     <div class="col-md-12">
-                                        <div class="white_shd full margin_bottom_30">
-                                           <div class="full graph_head">
-                                              <div class="heading1 margin_0">
-                                                 <h2>Calendar</h2>
-                                              </div>
-                                           </div>
-                                           <div class="full progress_bar_inner">
-                                              <div class="row">
-                                                 <div class="col-md-12">
-                                                    <div class="full">
-                                                       <div class="ui calendar" id="example14"></div>
-                                                    </div>
-                                                 </div>
-                                              </div>
-                                           </div>
-                                        </div>
-                                     </div>
-                                  </div>
-                               </div>
-                            </div>
-                         </div>
-                      </div>
-                   </div>
-                   <!-- row -->
-
-                            <!-- model popup -->
-         <!-- The Modal -->
-         <div class="modal fade" id="myModal">
-          <div class="modal-dialog">
-             <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                   <h4 class="modal-title">Modal Heading</h4>
-                   <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                <!-- Modal body -->
-                <div class="modal-body">
-                   Modal body..
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                   <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-             </div>
+    <!-- Footer -->
+    <footer class="bg-light py-3 mt-5" style="background-color: #ec5322;">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h3>About Us</h3>
+            <p>Learn more about the team behind Study Platform and our mission to help students succeed.</p>
+        </div>
+        <div class="col-md-4">
+            <h3>Contact</h3>
+            <p>Have a question or suggestion? Contact us through our online form or social media channels.</p>
+            <p >Tel: <span style="color: #ec5322;"> +2348025373455 </span> <br>
+            Email: <a href="emailto:fayomide324@gmail.com" style="color: #ec5322; text-decoration: none;">fayomide324@gmail.com</a> </p>
           </div>
-       </div>
-       <!-- end model popup -->
+        <div class="col-md-4">
+            <h3>Sign In</h3>
+            <p>Already have an account? Sign in to access all your study materials and tools.</p>
+        </div>
+        </div>
+        </div>
 
-
-
-
-
-
-
-   
-{% endblock content %}
-           
-
+        <p class="text-center mt-3" > Copyright &copy; 2023, by <a href="" style="color:#15283c;">Ayomide F.A</a> </p>
+        </footer>
+    </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.16.0/dist/umd/popper.min.js" integrity="sha384-fA23ZRQ3G/J53mElWqVJEGJzU0sTs+SvzG8fXVWP+kJQ1lwFAOkcUOysnlKJC33U" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        </body>
+        </html>
